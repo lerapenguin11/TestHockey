@@ -57,6 +57,8 @@ class PastMatchesAdapter : RecyclerView.Adapter<PastMatchesAdapter.PastMatchesVi
                 .override(50, 50)
                 .into(flagRight)
 
+            //openDetailsPastMatches()
+
             itemView.setOnClickListener {
                 val dialog  = Dialog(itemView.context, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen)
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -64,10 +66,38 @@ class PastMatchesAdapter : RecyclerView.Adapter<PastMatchesAdapter.PastMatchesVi
                 dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                 dialog.window?.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
+                val time : TextView = dialog.findViewById(R.id.tv_time_details)
+                val flagLeft : ImageView = dialog.findViewById(R.id.iv_flag_left_details)
+                val flagRight : ImageView = dialog.findViewById(R.id.iv_flag_right_details)
+                val result : TextView = dialog.findViewById(R.id.tv_result_details)
+                val nameLeft : TextView = dialog.findViewById(R.id.tv_name_left_details)
+                val nameRight : TextView = dialog.findViewById(R.id.tv_name_right_details)
+                val countryLeft : TextView = dialog.findViewById(R.id.tv_country_left_details)
+                val countryRight : TextView = dialog.findViewById(R.id.tv_country_right_details)
+                val bt_back : ImageView = dialog.findViewById(R.id.iv_back_home)
+
+                time.text = resultMatch.time
+                result.text = resultMatch.score
+                nameLeft.text = resultMatch.nameLeft
+                nameRight.text = resultMatch.nameRight
+                countryLeft.text = resultMatch.countryLeft
+                countryRight.text = resultMatch.countryRight
+
+                Glide.with(itemView.context)
+                    .load(resultMatch.flagLeft)
+                    .override(70, 70)
+                    .into(flagLeft)
+                Glide.with(itemView.context)
+                    .load(resultMatch.flagRight)
+                    .override(70, 70)
+                    .into(flagRight)
+
                 dialog.show()
+
+                bt_back.setOnClickListener { dialog.cancel() }
+
+
             }
-
         }
-
     }
 }

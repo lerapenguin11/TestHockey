@@ -57,13 +57,19 @@ class ResultMatchesRepository {
                     val flagRight = document.getString("flagRight")
                     val nameLeft = document.getString("nameLeft")
                     val nameRight = document.getString("nameRight")
+                    val countryLeft = document.getString("countryLeft")
+                    val countryRight = document.getString("countryRight")
+                    val result = document.getString("score")
                     val resultMatchesModel = ResultMatchesModel(
                         time = time!!,
                         date = date!!,
                         flagLeft = flagLeft!!,
                         flagRight = flagRight!!,
                         nameLeft = nameLeft!!,
-                        nameRight = nameRight!!
+                        nameRight = nameRight!!,
+                        countryLeft = countryLeft!!,
+                        countryRight = countryRight!!,
+                        score = result!!
                     )
                     listData.add(resultMatchesModel)
                 }

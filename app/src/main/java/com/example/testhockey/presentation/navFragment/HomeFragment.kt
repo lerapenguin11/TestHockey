@@ -37,15 +37,8 @@ class HomeFragment : Fragment() {
         binding.rvPastResult.adapter = mAdapterPast
 
         observeData()
-        openDialogDetails()
 
         return binding.root
-    }
-
-    private fun openDialogDetails() {
-        binding.rvPastResult.setOnClickListener {
-            
-        }
     }
 
     fun observeData(){

@@ -63,6 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
@@ -119,10 +120,10 @@
             style="@style/Heading3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:text="De Jong 66’"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_flag_left_details"
+            app:layout_constraintStart_toStartOf="@+id/iv_flag_left_details"
             app:layout_constraintTop_toBottomOf="@+id/iv_flag_left_details" />
 
         <TextView
@@ -131,9 +132,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
             android:text="De Jong 66’"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_flag_right_details"
+            app:layout_constraintStart_toStartOf="@+id/iv_flag_right_details"
             app:layout_constraintTop_toBottomOf="@+id/iv_flag_right_details" />
 
         <TextView
@@ -143,6 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Russia"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name_left_details"
             app:layout_constraintStart_toStartOf="@+id/tv_name_left_details"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_left_details" />
 
@@ -154,6 +156,7 @@
             android:layout_marginTop="5dp"
             android:text="Russia"
             app:layout_constraintEnd_toEndOf="@+id/tv_name_right_details"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_right_details"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_right_details" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
