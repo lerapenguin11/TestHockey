@@ -16,4 +16,12 @@
     <string name="_2nd_third">2nd third</string>
     <string name="_3rd_third">3rd third</string>
     <string name="hockey_reference_guide">Hockey Reference Guide</string>
+    <string name="assistant">Assistant</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="team_1">Team 1</string>
+    <string name="team_2_app_layout_constraintend_toendof">Team 2</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="reset">Reset</string>
 </resources>
