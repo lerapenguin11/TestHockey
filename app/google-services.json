@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355808329995",
+    "project_id": "hockey-5983d",
+    "storage_bucket": "hockey-5983d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355808329995:android:40574d4fdfaf269de8620e",
+        "android_client_info": {
+          "package_name": "com.example.testhockey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355808329995-ur2np3r30fjvqaslmq5jonvhf0depbkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO4qxAs5TztWn89nXEfbOsbE9IbpcuI6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355808329995-ur2np3r30fjvqaslmq5jonvhf0depbkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TestHockey</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="match_results">Match results</string>
+    <string name="today_s_matches">Today \'s matches</string>
+    <string name="past_matches">Past matches</string>
+    <string name="match_details">Match Details</string>
+    <string name="statistic_match">Statistic Match</string>
+    <string name="flag">Flag</string>
+    <string name="flag_country">Flag country</string>
+    <string name="shots_on_goal">Shots on goal</string>
+    <string name="penalty_time">Penalty time</string>
+    <string name="face_offs_won">Face - offs won</string>
+    <string name="_1st_third">1st third</string>
+    <string name="_2nd_third">2nd third</string>
+    <string name="_3rd_third">3rd third</string>
+</resources>
