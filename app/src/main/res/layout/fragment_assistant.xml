@@ -31,7 +31,7 @@
         android:id="@+id/tv_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00 : 00"
+        android:text="@string/_60_00"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="60dp"
         android:textColor="#00FF57"
@@ -173,7 +173,7 @@
                 android:textSize="60sp" />
 
             <TextView
-                android:id="@+id/tiam2"
+                android:id="@+id/team2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

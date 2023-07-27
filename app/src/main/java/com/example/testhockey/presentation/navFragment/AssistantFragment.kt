@@ -16,6 +16,8 @@ class AssistantFragment : Fragment() {
     private lateinit var countDownTimer : CountDownTimer
     private var timerRunning : Boolean = false
     private var timeLeftInMillis = START_TIME_IN_MILLIS
+    private var counterFirstTeam = 0
+    private var counterSecondTeam = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,11 +28,34 @@ class AssistantFragment : Fragment() {
         _binding = FragmentAssistantBinding.inflate(inflater, container, false)
 
         onOffTimer()
+        matchCounter()
 
         return binding.root
     }
 
-    fun onOffTimer(){
+    private fun matchCounter() {
+        binding.btTeam1Plus.setOnClickListener {
+            ++counterFirstTeam
+            binding.team1.text = counterFirstTeam.toString()
+        }
+
+        binding.btTiam1Minus.setOnClickListener {
+            --counterFirstTeam
+            binding.team1.text = counterFirstTeam.toString()
+        }
+
+        binding.btTeam2Plus.setOnClickListener {
+            ++counterSecondTeam
+            binding.team2.text = counterSecondTeam.toString()
+        }
+
+        binding.btTiam2Minus.setOnClickListener {
+            --counterSecondTeam
+            binding.team2.text = counterSecondTeam.toString()
+        }
+    }
+
+    private fun onOffTimer(){
 
         binding.tvStart.setOnClickListener {
             startTimer()
@@ -47,6 +72,7 @@ class AssistantFragment : Fragment() {
         }
     }
 
+//эти методы вынести в репоситорий
     private fun resetTimer() {
         timeLeftInMillis = START_TIME_IN_MILLIS
         updateCountDownText()
