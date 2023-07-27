@@ -72,7 +72,7 @@ class AssistantFragment : Fragment() {
         }
     }
 
-//эти методы вынести в репоситорий
+    //TODO эти методы вынести в репоситорий
     private fun resetTimer() {
         timeLeftInMillis = START_TIME_IN_MILLIS
         updateCountDownText()
