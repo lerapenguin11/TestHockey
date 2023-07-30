@@ -34,7 +34,7 @@
             android:layout_marginStart="10dp"
             android:fontFamily="@font/poppins_medium"
             android:padding="0dp"
-            android:text="100"
+            tools:text="100"
             android:textColor="@color/text1"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_coin"
@@ -107,6 +107,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

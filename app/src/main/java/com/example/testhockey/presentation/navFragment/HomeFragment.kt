@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testhockey.databinding.FragmentHomeBinding
 import com.example.testhockey.presentation.adapter.PastMatchesAdapter
 import com.example.testhockey.presentation.adapter.TodayMatchesAdapter
+import com.example.testhockey.viewModel.CoinsViewModel
 import com.example.testhockey.viewModel.HomeViewModel
 
 
@@ -38,10 +39,15 @@ class HomeFragment : Fragment() {
 
         observeData()
 
+        val viewModel : CoinsViewModel = ViewModelProvider(requireActivity()).get(CoinsViewModel::class.java)
+        viewModel.myMoneyLiveData.observe(viewLifecycleOwner){
+            binding.tvCoins.text = it.toString()
+        }
+
         return binding.root
     }
 
-    fun observeData(){
+    private fun observeData(){
         val viewModel : HomeViewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
         viewModel.getResultMatchesToday().observe(viewLifecycleOwner, Observer {
             mAdapterToday.setItem(it)

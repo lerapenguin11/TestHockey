@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 
             window.statusBarColor = ContextCompat.getColor(activity,android.R.color.transparent)
-            //window.navigationBarColor = ContextCompat.getColor(activity,android.R.color)
             window.setBackgroundDrawable(background)
         }
     }

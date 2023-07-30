@@ -15,17 +15,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.*
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import com.example.testhockey.R
 import com.example.testhockey.databinding.FragmentCoinsBinding
+import com.example.testhockey.viewModel.CoinsViewModel
+import com.example.testhockey.viewModel.HomeViewModel
 import kotlin.random.Random
 
 class CoinsFragment : Fragment(), SensorEventListener {
     private var _binding : FragmentCoinsBinding? = null
     private val binding get() = _binding!!
     private lateinit var sensorManager: SensorManager
-    private var count = 0
 
-    private var isAnimating = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +36,6 @@ class CoinsFragment : Fragment(), SensorEventListener {
         _binding = FragmentCoinsBinding.inflate(inflater, container, false)
 
         sensorManager = requireActivity().getSystemService(SENSOR_SERVICE) as SensorManager
-
-        binding.tvCoins.text = count.toString()
 
         return binding.root
     }
@@ -71,12 +70,18 @@ class CoinsFragment : Fragment(), SensorEventListener {
             if (acceleration > 30) {
                 animateImageView(animatorX, animatorY)
 
-                ++count
-                binding.tvCoins.text = count.toString()
+                val viewModel : CoinsViewModel = ViewModelProvider(requireActivity()).get(CoinsViewModel::class.java)
+                viewModel.collectMoney()
+
+                binding.imageView3.setOnClickListener {
+                    viewModel.saveToPrefs()
+                }
+
+                viewModel.moneyCounterLiveData.observe(viewLifecycleOwner) {
+                    binding.tvCoins.text = it.toString()
+                }
             }
-
         }
-
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}

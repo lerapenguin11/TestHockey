@@ -8,7 +8,6 @@ import com.example.testhockey.business.modeles.ResultMatchesModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ResultMatchesRepository {
-
     @SuppressLint("SuspiciousIndentation")
     fun getResultToday() : LiveData<MutableList<ResultMatchesModel>>{
         val mutableData = MutableLiveData<MutableList<ResultMatchesModel>>()
