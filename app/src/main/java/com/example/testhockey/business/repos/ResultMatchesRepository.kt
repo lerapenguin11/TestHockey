@@ -77,6 +77,5 @@ class ResultMatchesRepository {
             }
 
         return mutableData
-
     }
 }

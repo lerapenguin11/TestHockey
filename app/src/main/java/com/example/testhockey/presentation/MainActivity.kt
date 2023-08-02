@@ -14,15 +14,13 @@ import androidx.core.view.WindowCompat
 import com.example.testhockey.databinding.ActivityMainBinding
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.lifecycle.ViewModelProvider
 import com.example.testhockey.APP_ACTIVITY
 import com.example.testhockey.R
 import com.example.testhockey.presentation.navFragment.AssistantFragment
 import com.example.testhockey.presentation.navFragment.CoinsFragment
 import com.example.testhockey.presentation.navFragment.HomeFragment
 import com.example.testhockey.presentation.navFragment.SelfinstructionFragment
-import com.example.testhockey.utilits.replaceFragment
-import com.example.testhockey.viewModel.HomeViewModel
+import com.example.testhockey.utilits.replaceNavFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setStatusBarGradiant(this)
         //hideSystemUI()
 
-        replaceFragment(HomeFragment())
+        replaceNavFragment(HomeFragment())
 
         navigationBottom()
     }
@@ -49,10 +47,10 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
 
-                R.id.home -> replaceFragment(HomeFragment())
-                R.id.document -> replaceFragment(SelfinstructionFragment())
-                R.id.coin -> replaceFragment(CoinsFragment())
-                R.id.ass -> replaceFragment(AssistantFragment())
+                R.id.home -> replaceNavFragment(HomeFragment())
+                R.id.document -> replaceNavFragment(SelfinstructionFragment())
+                R.id.coin -> replaceNavFragment(CoinsFragment())
+                R.id.ass -> replaceNavFragment(AssistantFragment())
             }
             true
         }

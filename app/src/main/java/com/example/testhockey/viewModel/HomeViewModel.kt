@@ -1,12 +1,15 @@
 package com.example.testhockey.viewModel
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.testhockey.business.modeles.ResultMatchesModel
 import com.example.testhockey.business.repos.ResultMatchesRepository
 
-class HomeViewModel() : ViewModel(){
+class HomeViewModel(application: Application) : AndroidViewModel(application){
+    val teamsLiveData = MutableLiveData<ResultMatchesModel>()
 
     private val repo = ResultMatchesRepository()
 

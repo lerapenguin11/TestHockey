@@ -9,43 +9,41 @@ import kotlinx.coroutines.launch
 
 class CoinsViewModel(application: Application) : AndroidViewModel(application) {
 
-    val prefs = application.getSharedPreferences(GET_PREFS_KEY, MODE_PRIVATE)
+    val pref = application.getSharedPreferences(GET_PREFS_KEY, MODE_PRIVATE)
 
-    private var myMoney = prefs.getInt(PREFS_KEY_COUNT, 0)
+    var myCoins = pref.getInt(PREFS_KEY_COUNT, 0)
         set(value) {
             field = value
-            myMoneyLiveData.value = value
+            myCoinsLiveData.value = value
         }
-
-    val myMoneyLiveData = MutableLiveData(myMoney)
+    val myCoinsLiveData = MutableLiveData(myCoins)
 
     var counter = 0
         set(value) {
             field = value
-            moneyCounterLiveData.value = value
+            coinsCounterLiveData.value = value
         }
-    val moneyCounterLiveData = MutableLiveData(counter)
+    val coinsCounterLiveData = MutableLiveData(counter)
 
+    fun buyItem() {
+        myCoins -= 25
+        pref.edit()
+            .putInt(PREFS_KEY_COUNT, myCoins)
+            .apply()
+    }
 
-    fun collectMoney() {
+    fun collectCoins() {
         viewModelScope.launch {
             counter++
         }
 
     }
 
-    fun buyItem() {
-        myMoney -= 25
-        prefs.edit()
-            .putInt(PREFS_KEY_COUNT, myMoney)
-            .apply()
-    }
-
     fun saveToPrefs() {
-        prefs.edit()
-            .putInt(PREFS_KEY_COUNT, myMoney + counter)
+        pref.edit()
+            .putInt(PREFS_KEY_COUNT, myCoins + counter)
             .apply()
-        myMoney = prefs.getInt(PREFS_KEY_COUNT, 0)
+        myCoins = pref.getInt(PREFS_KEY_COUNT, 0)
         counter = 0
     }
 
@@ -53,5 +51,4 @@ class CoinsViewModel(application: Application) : AndroidViewModel(application) {
         private const val PREFS_KEY_COUNT = "COUNT"
         private const val GET_PREFS_KEY = "KEY"
     }
-
 }

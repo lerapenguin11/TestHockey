@@ -1,26 +1,20 @@
 package com.example.testhockey.presentation.navFragment
 
-import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.*
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
-import com.example.testhockey.R
 import com.example.testhockey.databinding.FragmentCoinsBinding
 import com.example.testhockey.viewModel.CoinsViewModel
-import com.example.testhockey.viewModel.HomeViewModel
-import kotlin.random.Random
 
 class CoinsFragment : Fragment(), SensorEventListener {
     private var _binding : FragmentCoinsBinding? = null
@@ -71,13 +65,13 @@ class CoinsFragment : Fragment(), SensorEventListener {
                 animateImageView(animatorX, animatorY)
 
                 val viewModel : CoinsViewModel = ViewModelProvider(requireActivity()).get(CoinsViewModel::class.java)
-                viewModel.collectMoney()
+                viewModel.collectCoins()
 
                 binding.imageView3.setOnClickListener {
                     viewModel.saveToPrefs()
                 }
 
-                viewModel.moneyCounterLiveData.observe(viewLifecycleOwner) {
+                viewModel.coinsCounterLiveData.observe(viewLifecycleOwner) {
                     binding.tvCoins.text = it.toString()
                 }
             }
